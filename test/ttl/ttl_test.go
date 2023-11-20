@@ -34,6 +34,10 @@ const (
 	testTTLCreateStatement = "create table if not exists test_ttl(c1 int(12) primary key, c2 int(12), c3 timestamp default current_timestamp on update current_timestamp) TTL(c3 + INTERVAL 2 second);"
 )
 
+const (
+	passTTLTest = true
+)
+
 func TestTTL_insert(t *testing.T) {
 	tableName := testTTLTableName
 	defer test.DeleteTable(tableName)
